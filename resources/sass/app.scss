@@ -6,3 +6,39 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Fontawesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/v4-shims.scss';
+@import '~@fortawesome/fontawesome-free/scss/_animated.scss';
+@import '~@fortawesome/fontawesome-free/scss/_bordered-pulled.scss';
+@import '~@fortawesome/fontawesome-free/scss/_core.scss';
+@import '~@fortawesome/fontawesome-free/scss/_fixed-width.scss';
+@import '~@fortawesome/fontawesome-free/scss/_icons.scss';
+@import '~@fortawesome/fontawesome-free/scss/_larger.scss';
+@import '~@fortawesome/fontawesome-free/scss/_list.scss';
+@import '~@fortawesome/fontawesome-free/scss/_mixins.scss';
+@import '~@fortawesome/fontawesome-free/scss/_rotated-flipped.scss';
+@import '~@fortawesome/fontawesome-free/scss/_screen-reader.scss';
+@import '~@fortawesome/fontawesome-free/scss/_shims.scss';
+@import '~@fortawesome/fontawesome-free/scss/_stacked.scss';
+@import '~@fortawesome/fontawesome-free/scss/_variables.scss';
+
+// DataTable
+@import '~datatables.net-dt/css/jquery.dataTables.min.css';
+@import '~datatables.net-responsive-dt/css/responsive.dataTables.min.css';
+
+// SweetAlert
+@import '~sweetalert2/dist/sweetalert2.css';
+
+// Select 2
+@import '~select2/dist/css/select2.css';
+
+// Select 2 Bootstrap Theme
+@import '~select2-bootstrap-theme/dist/select2-bootstrap.css';
+
+// Daterangepicker
+@import '~daterangepicker/daterangepicker.css';

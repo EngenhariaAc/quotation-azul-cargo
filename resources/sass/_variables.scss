@@ -17,3 +17,17 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+// Embed responsive aspect ratios
+$embed-responsive-aspect-ratios: (
+  (21 9),
+  (9 21),
+  (16 9),
+  (9 16),
+  (4 3),
+  (3 4),
+  (1 1)
+) !default;
+
+// Bootstrap font size responsive
+$enable-responsive-font-sizes: 'true';

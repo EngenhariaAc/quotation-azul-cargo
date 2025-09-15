@@ -10,16 +10,30 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.4",
         "axios": "^0.19",
         "bootstrap": "^4.0.0",
+        "bs-custom-file-input": "^1.3.4",
         "cross-env": "^7.0",
+        "datatables.net": "^1.13.1",
+        "datatables.net-dt": "^1.13.1",
+        "datatables.net-plugins": "^1.10.24",
+        "datatables.net-responsive-dt": "^2.2.6",
+        "daterangepicker": "^3.1.0",
         "jquery": "^3.2",
+        "jquery-mask-plugin": "^1.14.16",
+        "jupyterlab-slurm": "^2.0.0",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
+        "maximize-select2-height": "^1.0.4",
+        "moment": "^2.29.4",
         "popper.js": "^1.12",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
+        "select2": "^4.0.13",
+        "select2-bootstrap-theme": "0.1.0-beta.10",
+        "sweetalert2": "^10.3.5",
         "vue-template-compiler": "^2.7.16"
     }
 }

@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/quotations/create', 'QuotationController@create')->name('quotations.create')->middleware('auth');
+Route::post('/quotations/store', 'QuotationController@store')->name('quotations.store')->middleware('auth');
