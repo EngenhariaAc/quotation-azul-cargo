@@ -79,9 +79,9 @@ class QuotationController extends Controller
             \"TipoEntrega\": \"DOMICILIO\",
             \"Coleta\": true,
             \"Itens\": [";
+        // Set an aux to get the count of volumes on the JSON.
+        $count = 0;
         for ($i=1; $i < $global_volume_quantity; $i++) {
-            // Set an aux to get the count of volumes on the JSON.
-            $count = 0;
             if ($request->has("item_quantity_volume$i")) {
                 $count++;
                 if ($count <= 1) {
@@ -97,7 +97,6 @@ class QuotationController extends Controller
                         \"Comprimento\": $length,
                         \"Largura\": $width
                     }";
-
                 } else {
                     $item_quantity_volume = $request->input("item_quantity_volume$i");
                     $weight = $request->input("weight$i");
