@@ -80,19 +80,38 @@ class QuotationController extends Controller
             \"Coleta\": true,
             \"Itens\": [";
         for ($i=1; $i < $global_volume_quantity; $i++) {
+            // Set an aux to get the count of volumes on the JSON.
+            $count = 0;
             if ($request->has("item_quantity_volume$i")) {
-                $item_quantity_volume = $request->input("item_quantity_volume$i");
-                $weight = $request->input("weight$i");
-                $height = $request->input("height$i");
-                $length = $request->input("length$i");
-                $width = $request->input("width$i");
-                $send_json = $send_json."{
-                    \"Volume\": $item_quantity_volume,
-                    \"Peso\": $weight,
-                    \"Altura\": $height,
-                    \"Comprimento\": $length,
-                    \"Largura\": $width
-                }";
+                $count++;
+                if ($count <= 1) {
+                    $item_quantity_volume = $request->input("item_quantity_volume$i");
+                    $weight = $request->input("weight$i");
+                    $height = $request->input("height$i");
+                    $length = $request->input("length$i");
+                    $width = $request->input("width$i");
+                    $send_json = $send_json."{
+                        \"Volume\": $item_quantity_volume,
+                        \"Peso\": $weight,
+                        \"Altura\": $height,
+                        \"Comprimento\": $length,
+                        \"Largura\": $width
+                    }";
+
+                } else {
+                    $item_quantity_volume = $request->input("item_quantity_volume$i");
+                    $weight = $request->input("weight$i");
+                    $height = $request->input("height$i");
+                    $length = $request->input("length$i");
+                    $width = $request->input("width$i");
+                    $send_json = $send_json.",{
+                        \"Volume\": $item_quantity_volume,
+                        \"Peso\": $weight,
+                        \"Altura\": $height,
+                        \"Comprimento\": $length,
+                        \"Largura\": $width
+                    }";
+                }
             }
         }
         $send_json = $send_json."
