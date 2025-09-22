@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Agendamento Online</title>
+        <title>Cotação</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="card shadow bg-light">
                                 <div class="card-header">
-                                    <h3 class="card-title text-center align-center m-0">Agendamento Online</h3>
+                                    <h3 class="card-title text-center align-center m-0">Cotação</h3>
                                 </div>
                                 @guest
                                     <form method="POST" action="{{ route('login') }}">
