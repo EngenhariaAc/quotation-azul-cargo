@@ -45,6 +45,7 @@ class QuotationController extends Controller
         $quantity_volume = $request->quantity_volume;
         $total_value = $request->total_value;
         $global_volume_quantity = $request->global_volume_quantity;
+        $pickup = $request->has('pickup') ? $request->pickup : 'DOMICILIO';
 
         // Create a collection for store the data from request.
         $request_data = collect();
@@ -78,7 +79,7 @@ class QuotationController extends Controller
             \"PesoReal\": $real_weight,
             \"Volume\": $quantity_volume,
             \"ValorTotal\": $total_value,
-            \"TipoEntrega\": \"DOMICILIO\",
+            \"TipoEntrega\": \"$pickup\",
             \"Coleta\": true,
             \"Itens\": [";
         // Set an aux to get the count of volumes on the JSON.

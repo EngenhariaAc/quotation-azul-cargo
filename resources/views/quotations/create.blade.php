@@ -133,7 +133,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Novo Volume</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button id="close_modal" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
@@ -142,7 +142,7 @@
                                             <label for="item_quantity_volume" class="col-md-3 col-form-label text-md-right">{{ __('Qtd. Volume') }}</label>
 
                                             <div class="col-md-9">
-                                                <input id="item_quantity_volume" type="text" class="form-control @error('item_quantity_volume') is-invalid @enderror" name="item_quantity_volume" value="{{ old('item_quantity_volume') }}" placeholder="Digite a Quantidade de Volume..." autocomplete="item_quantity_volume" maxlength="20" autofocus>
+                                                <input id="item_quantity_volume" type="text" class="form-control @error('item_quantity_volume') is-invalid @enderror" name="item_quantity_volume" value="{{ old('item_quantity_volume') }}" placeholder="Digite a Quantidade de Volume..." autocomplete="on" autofocus>
 
                                                 @error('item_quantity_volume')
                                                     <span class="invalid-feedback" role="alert">
@@ -156,7 +156,7 @@
                                             <label for="weight" class="col-md-3 col-form-label text-md-right">{{ __('Peso') }}</label>
 
                                             <div class="col-md-9">
-                                                <input id="weight" type="text" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ old('weight') }}" placeholder="Digite o Peso..." autocomplete="weight" maxlength="20" autofocus>
+                                                <input id="weight" type="text" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ old('weight') }}" placeholder="Digite o Peso..." autocomplete="on">
 
                                                 @error('weight')
                                                     <span class="invalid-feedback" role="alert">
@@ -170,7 +170,7 @@
                                             <label for="height" class="col-md-3 col-form-label text-md-right">{{ __('Altura') }}</label>
 
                                             <div class="col-md-9">
-                                                <input id="height" type="text" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" placeholder="Digite o Comprimento..." autocomplete="height" maxlength="20" autofocus>
+                                                <input id="height" type="text" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" placeholder="Digite o Comprimento..." autocomplete="on">
 
                                                 @error('height')
                                                     <span class="invalid-feedback" role="alert">
@@ -185,7 +185,7 @@
                                             <label for="length" class="col-md-3 col-form-label text-md-right">{{ __('Comprimento') }}</label>
 
                                             <div class="col-md-9">
-                                                <input id="length" type="text" class="form-control @error('length') is-invalid @enderror" name="length" value="{{ old('length') }}" placeholder="Digite o Comprimento..." autocomplete="length" maxlength="20" autofocus>
+                                                <input id="length" type="text" class="form-control @error('length') is-invalid @enderror" name="length" value="{{ old('length') }}" placeholder="Digite o Comprimento..." autocomplete="on">
 
                                                 @error('length')
                                                     <span class="invalid-feedback" role="alert">
@@ -200,7 +200,7 @@
                                             <label for="width" class="col-md-3 col-form-label text-md-right">{{ __('Largura') }}</label>
 
                                             <div class="col-md-9">
-                                                <input id="width" type="text" class="form-control @error('width') is-invalid @enderror" name="width" value="{{ old('width') }}" placeholder="Digite o Largura..." autocomplete="width" maxlength="20" autofocus>
+                                                <input id="width" type="text" class="form-control @error('width') is-invalid @enderror" name="width" value="{{ old('width') }}" placeholder="Digite o Largura..." autocomplete="on">
 
                                                 @error('width')
                                                     <span class="invalid-feedback" role="alert">
@@ -252,6 +252,13 @@
             $('#width').mask('#0.00', {reverse: true});
             $('#myModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')
+            });
+            $('#close_modal').on('click', function() {
+                $('#item_quantity_volume').val('');
+                $('#height').val('');
+                $('#weight').val('');
+                $('#length').val('');
+                $('#width').val('');
             });
             $('#back_modal').on('click', function() {
                 $('#item_quantity_volume').val('');
