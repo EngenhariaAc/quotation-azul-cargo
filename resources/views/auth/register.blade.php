@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                             <div class="col-md-9">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Digite seu primeiro nome..." autocomplete="name" maxlength="20" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Digite seu nome..." autocomplete="name" maxlength="20" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

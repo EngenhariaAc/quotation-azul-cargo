@@ -2,7 +2,7 @@
 {{-- Header --}}
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-{{ 'Agendamento Online' }}
+{{ 'Cotação' }}
 @endcomponent
 @endslot
 
@@ -21,7 +21,7 @@
 {{-- Footer --}}
 @slot('footer')
 @component('mail::footer')
-© {{ date('Y') }} {{ 'Agendamento Online' }}. @lang('Todos os direitos reservados.')
+© {{ date('Y') }} {{ 'Cotação' }}. @lang('Todos os direitos reservados.')
 @endcomponent
 @endslot
 @endcomponent

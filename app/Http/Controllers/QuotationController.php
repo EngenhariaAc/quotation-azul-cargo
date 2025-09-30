@@ -38,7 +38,7 @@ class QuotationController extends Controller
         // Validate the fields
 
 
-        // Get attributes from the request
+        // Get attributes from the request.
         $origin_zip_code = $request->origin_zip_code;
         $destination_zip_code = $request->destination_zip_code;
         $real_weight = $request->real_weight;
@@ -46,8 +46,10 @@ class QuotationController extends Controller
         $total_value = $request->total_value;
         $global_volume_quantity = $request->global_volume_quantity;
 
-        // Create the token from Azul Cargo Express.
+        // Create a collection for store the data from request.
+        $request_data = collect();
 
+        // Create the token from Azul Cargo Express.
         // Create HTTP client to Azul Cargo Express.
         $client_azul = new \GuzzleHttp\Client(['base_uri' => 'https://ediapi.onlineapp.com.br']);
 

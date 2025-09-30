@@ -14,10 +14,10 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Usuário') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ $username ?? old('username') }}" autocomplete="username" autofocus>
+                                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $username ?? old('email') }}" autocomplete="email" autofocus>
 
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">

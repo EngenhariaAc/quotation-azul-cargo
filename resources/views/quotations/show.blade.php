@@ -24,8 +24,8 @@
                                         <th>Serviço</th>
                                         <th>Peso Taxado</th>
                                         <th>Prazo</th>
-                                        <th>Total</th>
                                         <th>Frete</th>
+                                        <th>Total</th>
                                     </thead>
                                     <tbody>
                                         @foreach ($quotations as $quotation)
@@ -33,8 +33,8 @@
                                                 <td>{{$quotation['service_name']}}</td>
                                                 <td>{{$quotation['taxed_weight']}}</td>
                                                 <td>{{$quotation['deadline']}}</td>
-                                                <td>{{$quotation['total']}}</td>
                                                 <td>{{$quotation['freight']}}</td>
+                                                <td>{{$quotation['total']}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

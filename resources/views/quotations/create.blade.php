@@ -22,7 +22,7 @@
                             <label for="origin_zip_code" class="col-md-3 col-form-label text-md-right">{{ __('CEP Origem') }}</label>
 
                             <div class="col-md-9">
-                                <input id="origin_zip_code" type="text" class="form-control @error('origin_zip_code') is-invalid @enderror" name="origin_zip_code" value="{{ old('origin_zip_code') }}" placeholder="Digite o CEP Origem..." autocomplete="origin_zip_code" maxlength="20" autofocus>
+                                <input id="origin_zip_code" type="text" class="form-control @error('origin_zip_code') is-invalid @enderror" name="origin_zip_code" value="{{ old('origin_zip_code') }}" placeholder="Digite o CEP Origem..." autocomplete="on" autofocus>
 
                                 @error('origin_zip_code')
                                     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                             <label for="destination_zip_code" class="col-md-3 col-form-label text-md-right">{{ __('CEP Destino') }}</label>
 
                             <div class="col-md-9">
-                                <input id="destination_zip_code" type="text" class="form-control @error('destination_zip_code') is-invalid @enderror" name="destination_zip_code" value="{{ old('destination_zip_code') }}" placeholder="Digite o CEP Destino..." autocomplete="destination_zip_code" maxlength="20" autofocus>
+                                <input id="destination_zip_code" type="text" class="form-control @error('destination_zip_code') is-invalid @enderror" name="destination_zip_code" value="{{ old('destination_zip_code') }}" placeholder="Digite o CEP Destino..." autocomplete="on">
 
                                 @error('destination_zip_code')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                             <label for="real_weight" class="col-md-3 col-form-label text-md-right">{{ __('Peso Real') }}</label>
 
                             <div class="col-md-9">
-                                <input id="real_weight" type="text" class="form-control @error('real_weight') is-invalid @enderror" name="real_weight" value="{{ old('real_weight') }}" placeholder="Digite o Peso Real..." autocomplete="real_weight" maxlength="20" autofocus>
+                                <input id="real_weight" type="text" class="form-control @error('real_weight') is-invalid @enderror" name="real_weight" value="{{ old('real_weight') }}" placeholder="Digite o Peso Real..." autocomplete="on">
 
                                 @error('real_weight')
                                     <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                             <label for="quantity_volume" class="col-md-3 col-form-label text-md-right">{{ __('Qtd. Volume(s) Total') }}</label>
 
                             <div class="col-md-9">
-                                <input id="quantity_volume" type="text" class="form-control @error('quantity_volume') is-invalid @enderror" name="quantity_volume" value="{{ old('quantity_volume') }}" placeholder="Digite a Quantidade de Volume(s) Total..." autocomplete="quantity_volume" maxlength="20" autofocus>
+                                <input id="quantity_volume" type="text" class="form-control @error('quantity_volume') is-invalid @enderror" name="quantity_volume" value="{{ old('quantity_volume') }}" placeholder="Digite a Quantidade de Volume(s) Total..." autocomplete="on">
 
                                 @error('quantity_volume')
                                     <span class="invalid-feedback" role="alert">
@@ -78,13 +78,25 @@
                             <label for="total_value" class="col-md-3 col-form-label text-md-right">{{ __('Valor Total') }}</label>
 
                             <div class="col-md-9">
-                                <input id="total_value" type="text" class="form-control @error('total_value') is-invalid @enderror" name="total_value" value="{{ old('total_value') }}" placeholder="Digite o Valor Total..." autocomplete="name" maxlength="20" autofocus>
+                                <input id="total_value" type="text" class="form-control @error('total_value') is-invalid @enderror" name="total_value" value="{{ old('total_value') }}" placeholder="Digite o Valor Total..." autocomplete="on">
 
                                 @error('total_value')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3 text-md-right">
+                                <span>{{ __('Retirada') }}</span>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="custom-control custom-checkbox">
+                                    <input id="pickup_checkbox" type="checkbox" class="custom-control-input @error('pickup') is-invalid @enderror" name="pickup" value="AEROPORTO">
+                                    <label for="pickup_checkbox" class="custom-control-label">Marque para retirada no Aeroporto/Pick Up</label>
+                                </div>
                             </div>
                         </div>
 

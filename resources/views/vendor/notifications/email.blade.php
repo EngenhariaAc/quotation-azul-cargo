@@ -44,7 +44,7 @@
 {{ $salutation }}
 @else
 @lang('Atenciosamente'),<br>
-{{ 'Equipe Agendamento Online' }}
+{{ 'Equipe Cotação' }}
 @endif
 
 {{-- Subcopy --}}
