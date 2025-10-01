@@ -217,6 +217,17 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div id="spinner_modal" class="modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <h1 class="text-center"><i class="fas fa-spinner fa-lg fa-spin"></i></h1>
+                                        <h1 class="text-center">Calculando</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card-footer">
@@ -289,6 +300,7 @@
             });
             $('#submit_button').on('click', function () {
                 $('#global_volume_quantity').val(global_volume);
+                $('#spinner_modal').modal("show");
                 $('#submit_form').submit();
             });
         });
