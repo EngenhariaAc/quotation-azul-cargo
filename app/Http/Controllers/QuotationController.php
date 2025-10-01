@@ -49,6 +49,13 @@ class QuotationController extends Controller
 
         // Create a collection for store the data from request.
         $request_data = collect();
+        $request_data->put('origin_zip_code', $origin_zip_code);
+        $request_data->put('destination_zip_code', $destination_zip_code);
+        $request_data->put('real_weight', $real_weight);
+        $request_data->put('quantity_volume', $quantity_volume);
+        $request_data->put('total_value', $total_value);
+        $request_data->put('global_volume_quantity', $global_volume_quantity);
+        $request_data->put('pickup', $pickup);
 
         // Create the token from Azul Cargo Express.
         // Create HTTP client to Azul Cargo Express.
@@ -87,12 +94,26 @@ class QuotationController extends Controller
         for ($i=1; $i < $global_volume_quantity; $i++) {
             if ($request->has("item_quantity_volume$i")) {
                 $count++;
+                // Create the request volume collect
+                $request_volume_data = collect();
+                // Check if the request has only one volume.
                 if ($count <= 1) {
+                    // Get the volume data from the request.
                     $item_quantity_volume = $request->input("item_quantity_volume$i");
                     $weight = $request->input("weight$i");
                     $height = $request->input("height$i");
                     $length = $request->input("length$i");
                     $width = $request->input("width$i");
+                    // Add to request volume data collection.
+                    $volume_data = [
+                        "item_quantity_volume" => $item_quantity_volume,
+                        "weight" => $weight,
+                        "height" => $height,
+                        "lenght" => $length,
+                        "width" => $width
+                    ];
+                    $request_volume_data->push($volume_data);
+                    // Add the volume to the JSON without comma before the object.
                     $send_json = $send_json."{
                         \"Volume\": $item_quantity_volume,
                         \"Peso\": $weight,
@@ -101,11 +122,22 @@ class QuotationController extends Controller
                         \"Largura\": $width
                     }";
                 } else {
+                    // Get the volume data from the request.
                     $item_quantity_volume = $request->input("item_quantity_volume$i");
                     $weight = $request->input("weight$i");
                     $height = $request->input("height$i");
                     $length = $request->input("length$i");
                     $width = $request->input("width$i");
+                    // Add to request volume data collection.
+                    $volume_data = [
+                        "item_quantity_volume" => $item_quantity_volume,
+                        "weight" => $weight,
+                        "height" => $height,
+                        "lenght" => $length,
+                        "width" => $width
+                    ];
+                    $request_volume_data->push($volume_data);
+                    // Add the volume to the JSON with comma before object.
                     $send_json = $send_json.",{
                         \"Volume\": $item_quantity_volume,
                         \"Peso\": $weight,
@@ -114,6 +146,8 @@ class QuotationController extends Controller
                         \"Largura\": $width
                     }";
                 }
+                // Add the request volume data to the request data collection.
+                $request_data->put("volumes", $request_volume_data);
             }
         }
         $send_json = $send_json."
@@ -152,7 +186,7 @@ class QuotationController extends Controller
         }
 
         // Return result view
-        return view('quotations.show', ['quotations' => $quotations]);
+        return view('quotations.show', ['quotations' => $quotations, 'request_data' => $request_data]);
     }
 
     /**
