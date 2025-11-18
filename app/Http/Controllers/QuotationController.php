@@ -40,89 +40,9 @@ class QuotationController extends Controller
         $validator = Validator::make($request->all(), [
             'origin_zip_code' => [
                 'required',
-                function ($attribute, $value, $fail) {
-                    // Create HTTP client to Azul Cargo Express.
-                    $client_azul = new \GuzzleHttp\Client(['base_uri' => 'https://ediapi.onlineapp.com.br']);
-
-                    // Send authenthication request to Azul Cargo Express for get token and refresh token.
-                    $response_azul = $client_azul->request('POST', '/toolkit/api/Autenticacao/AutenticarUsuario' , [
-                        'headers' => [
-                            'Content-Type' => 'application/json',
-                            'Connection' => 'keep-alive',
-                        ],
-                        'body' => '{
-                            "Email": "gabriel.cabral@aguadecoco.com.br",
-                            "Senha": "Azul@azulcargo@2025"
-                        }',
-                        'verify' => false,
-                    ]);
-                    $body_response_azul = $response_azul->getBody();
-                    $json_azul = json_decode($body_response_azul);
-                    $token_azul = $json_azul->Value;
-
-                    // Make the send JSON.
-                    $send_json = "{
-                        \"Token\": \"".$token_azul."\",
-                        \"Cep\": \"".$value."\"
-                    }";
-
-                    // Send authenthication request to Azul Cargo Express for check CEP availability.
-                    $response_azul_quotation = $client_azul->request('POST', '/toolkit/api/Unidades/LocalizarUnidades' , [
-                        'headers' => [
-                            'Content-Type' => 'application/json',
-                            'Connection' => 'keep-alive',
-                        ],
-                        'body' => $send_json,
-                        'verify' => false,
-                    ]);
-
-                    if ($response_azul_quotation->getStatusCode() === 204) {
-                        $fail("CEP fora da abrangência da Azul.");
-                    }
-                },
             ],
             'destination_zip_code' => [
                 'required',
-                function ($attribute, $value, $fail) {
-                    // Create HTTP client to Azul Cargo Express.
-                    $client_azul = new \GuzzleHttp\Client(['base_uri' => 'https://ediapi.onlineapp.com.br']);
-
-                    // Send authenthication request to Azul Cargo Express for get token and refresh token.
-                    $response_azul = $client_azul->request('POST', '/toolkit/api/Autenticacao/AutenticarUsuario' , [
-                        'headers' => [
-                            'Content-Type' => 'application/json',
-                            'Connection' => 'keep-alive',
-                        ],
-                        'body' => '{
-                            "Email": "gabriel.cabral@aguadecoco.com.br",
-                            "Senha": "Azul@azulcargo@2025"
-                        }',
-                        'verify' => false,
-                    ]);
-                    $body_response_azul = $response_azul->getBody();
-                    $json_azul = json_decode($body_response_azul);
-                    $token_azul = $json_azul->Value;
-
-                    // Make the send JSON.
-                    $send_json = "{
-                        \"Token\": \"".$token_azul."\",
-                        \"Cep\": \"".$value."\"
-                    }";
-
-                    // Send authenthication request to Azul Cargo Express for check CEP availability.
-                    $response_azul_cep = $client_azul->request('POST', '/toolkit/api/Unidades/LocalizarUnidades' , [
-                        'headers' => [
-                            'Content-Type' => 'application/json',
-                            'Connection' => 'keep-alive',
-                        ],
-                        'body' => $send_json,
-                        'verify' => false,
-                    ]);
-
-                    if ($response_azul_cep->getStatusCode() === 204) {
-                        $fail("CEP fora da abrangência da Azul.");
-                    }
-                },
             ],
             'real_weight' => ['required'],
             'quantity_volume' => ['required'],
