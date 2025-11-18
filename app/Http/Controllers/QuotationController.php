@@ -106,11 +106,11 @@ class QuotationController extends Controller
             \"Itens\": [";
         // Set an aux to get the count of volumes on the JSON.
         $count = 0;
+        // Create the request volume collect
+        $request_volume_data = collect();
         for ($i=1; $i < $global_volume_quantity; $i++) {
             if ($request->has("item_quantity_volume$i")) {
                 $count++;
-                // Create the request volume collect
-                $request_volume_data = collect();
                 // Check if the request has only one volume.
                 if ($count <= 1) {
                     // Get the volume data from the request.
@@ -161,9 +161,9 @@ class QuotationController extends Controller
                         \"Largura\": $width
                     }";
                 }
-                // Add the request volume data to the request data collection.
-                $request_data->put("volumes", $request_volume_data);
             }
+            // Add the request volume data to the request data collection.
+            $request_data->put("volumes", $request_volume_data);
         }
         $send_json = $send_json."
             ]
